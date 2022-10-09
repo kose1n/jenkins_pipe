@@ -13,12 +13,9 @@ pipeline {
     }
     post {
         always {
-            echo 'One way or another, I have finished'
-            mail to: 'kocccs@mail.ru',
+            mail to: 'vitaliykosein@gmail.com',
                  subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                 body: "Something is wrong with ${env.BUILD_URL}"
-            deleteDir() /* clean up our workspace */
-            
+                 body: "Something is wrong with ${env.BUILD_URL}        
         }
         success {
            echo 'Very good!'
