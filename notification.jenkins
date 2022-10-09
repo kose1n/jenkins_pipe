@@ -14,12 +14,14 @@ pipeline {
     post {
         always {
             echo 'One way or another, I have finished'
+            mail to: 'kocccs@mail.ru',
+                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
             deleteDir() /* clean up our workspace */
+            
         }
         success {
-           mail to: 'kocccs@mail.ru',
-             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
+           echo 'Very good!'
         }
         unstable {
             echo 'I am unstable :/'
