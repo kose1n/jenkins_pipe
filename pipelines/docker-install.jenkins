@@ -1,5 +1,5 @@
 #!groovy
-@Library('bitwiseman-shared@blog/declarative/notifications') _ 
+// @Library('bitwiseman-shared@blog/declarative/notifications') _ 
 
 pipeline {
   agent {
@@ -61,7 +61,7 @@ pipeline {
   }
   post {
     always {
-      sendNotifications currentBuild.result
-    }
+            echo 'This will always run'
+        }
   }
 }
