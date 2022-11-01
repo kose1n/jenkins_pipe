@@ -4,6 +4,7 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
+    //trigg for detect 1 min
     triggers { pollSCM('* * * * *') }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
