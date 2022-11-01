@@ -1,5 +1,4 @@
 #!groovy
-// @Library('bitwiseman-shared@blog/declarative/notifications') _ 
 
 pipeline {
   agent {
@@ -9,7 +8,7 @@ pipeline {
     }
   }
   options {
-    // Only keep the 10 most recent builds
+    // Only keep the 10 sec
     buildDiscarder(logRotator(numToKeepStr:'10'))
   }
   stages {
